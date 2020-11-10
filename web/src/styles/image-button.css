@@ -1,0 +1,8 @@
+.image-container {
+  border: 2px solid #41368257;
+}
+
+.image-container img {
+  max-width: 100%;
+  min-height: 65%;
+}
