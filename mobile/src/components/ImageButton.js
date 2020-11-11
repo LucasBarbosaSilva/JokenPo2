@@ -19,7 +19,10 @@ const ImageButton = ({ actualImage, changeImage }) => {
 
 const styles = StyleSheet.create({
   container: {
-    border: '2px solid #000'
+    borderWidth: 2,
+    // borderStartColor: 'solid',
+    borderColor: '#000'
+    // border: '2px solid #000'
   },
   image: {
     maxWidth: width * 0.915,
