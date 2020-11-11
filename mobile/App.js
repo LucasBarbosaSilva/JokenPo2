@@ -1,21 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Navbar from './src/components/Navbar';
+import ImageButton from './src/components/ImageButton.js';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+class App extends Component {
+
+  state = {
+    isDefaultImage: true
+  }
+
+  changeImageButton = (value) => {
+    this.setState({ isDefaultImage: value })
+  }
+
+  render() {
+    return (
+      <View>
+        <Navbar />
+        <View style={styles.container}>
+          <ImageButton actualImage={this.state.isDefaultImage} changeImage={this.changeImageButton} />
+        </View>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#4a3e86',
+    padding: 12
   },
 });
+
+export default App;
