@@ -1,13 +1,14 @@
 import React from 'react';
 import charactersImage from '../images/jogadores.png';
-import rulesImage from '../images/regras.png';
 import '../styles/image-button.css';
 
-const ImageButton = ({actualImage, changeImage}) => {
-  let value = actualImage ? charactersImage : rulesImage;
+import rulesImage from '../images/regras.png';
+
+const ImageButton = ({ actualImage, changeImage }) => {
+  let path = actualImage ? charactersImage : rulesImage;
   return (
     <div className="image-container">
-      <img src={value} alt="Characters playing jokenpo" onClick={() => changeImage(!actualImage)} />
+      <img src={path} alt="Characters playing jokenpo" onClick={() => changeImage(!actualImage)} />
     </div>
   );
 }

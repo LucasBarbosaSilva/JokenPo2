@@ -1,8 +1,10 @@
 .image-container {
-  border: 2px solid #41368257;
+  width: 100%;
+  border: 2px solid #1411223d;
 }
 
 .image-container img {
+  display: inherit;
   max-width: 100%;
-  min-height: 65%;
+  max-height: auto;
 }

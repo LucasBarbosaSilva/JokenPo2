@@ -1,0 +1,27 @@
+#character-button {
+  width: 15vw;
+  height: 15vw;
+}
+
+#character-button img {
+  border: 2px solid #1411223d;
+  border-radius: 35px;
+  width: inherit;
+  height: inherit;
+}
+
+#character-button img:active {
+  border: 2px solid #f15353;
+}
+
+#character-icon {
+  width: 24vw;
+  height: 24vw;
+}
+
+#character-icon img {
+  border: 2px solid #1411223d;
+  border-radius: 45px;
+  width: inherit;
+  height: inherit;
+}

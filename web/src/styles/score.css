@@ -1,0 +1,20 @@
+.container-value {
+  margin-top: 2vh;
+  background-color: #4a3e86;
+  border: 2px solid #1411223d;
+  border-radius: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 10vw;
+  width: 20vw;
+}
+
+.container-value h3 {
+  color: #ffffffe5;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  margin-block-start: 0.0em;
+  margin-block-end: 0.0em;
+}
