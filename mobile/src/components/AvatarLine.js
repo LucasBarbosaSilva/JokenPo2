@@ -2,16 +2,24 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import Avatar from "./Avatar";
 
-const array = [0,1,2,3,4]
+const array = [
+  "../images/pedra.png",
+  "../images/lagarto.png",
+  "../images/papel.png",
+  "../images/spock.png",
+  "../images/tesoura.png"
+]
 
 const AvatarLine = () =>{
-    
+  let c = 0;
   return(
     <View style={style.container}>
-      {
-        array.map(id => {
+      { 
+        
+        array.map((paths) => {
+          c+=1
           return(
-            <Avatar key={id} id={id}/>
+            <Avatar key={c} id={c} sizeIn={50} />
           );
         })
       }
