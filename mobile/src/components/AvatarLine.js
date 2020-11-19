@@ -2,24 +2,15 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import Avatar from "./Avatar";
 
-const array = [
-  "../images/pedra.png",
-  "../images/lagarto.png",
-  "../images/papel.png",
-  "../images/spock.png",
-  "../images/tesoura.png"
-]
 
-const AvatarLine = () =>{
-  let c = 0;
+const AvatarLine = (images) =>{
+  
   return(
     <View style={style.container}>
       { 
-        
-        array.map((paths) => {
-          c+=1
+        images.map((image, key)=> {
           return(
-            <Avatar key={c} id={c} sizeIn={50} />
+            <Avatar key={key} index={key} image={image} sizeIn={50} />
           );
         })
       }
@@ -27,15 +18,16 @@ const AvatarLine = () =>{
   );
 }
 
+const style = StyleSheet.create({
+  container:{
+      display: 'flex',
+      flexDirection: 'row',
+      height: 80,
+      justifyContent: 'space-around',
+      alignItems: 'center'
+
+  }
+});
+
 export default AvatarLine;
 
-const style = StyleSheet.create({
-    container:{
-        display: 'flex',
-        flexDirection: 'row',
-        height: 80,
-        justifyContent: 'space-around',
-        alignItems: 'center'
-
-    }
-});

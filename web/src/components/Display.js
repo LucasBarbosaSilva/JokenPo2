@@ -29,4 +29,7 @@ const Display = ({ info }) => {
   );
 }
 
+
+
 export default Display;
+
