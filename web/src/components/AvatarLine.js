@@ -6,7 +6,7 @@ const AvatarLine = ({ images, action }) => {
   const avatarList = images.map((image, key) => {
     return(
       <div key={key}>
-        <Avatar image={image} action={action} key={key}/>
+        <Avatar image={image} index={key} action={action} key={key}/>
       </div>
     );
   });

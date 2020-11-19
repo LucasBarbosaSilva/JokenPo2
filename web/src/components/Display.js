@@ -10,19 +10,19 @@ const Display = ({ info }) => {
   return (
     <div className="match-container">
       <div className="decoration-image">
-        <img src={match} />
+        <img alt="fdgsdfgsdfgs" src={match} />
       </div>
       <div className="game-components">
         <div className="player-components">
           <Avatar image={info.player.characterImage} />
-          <Score />
+          <Score value={info.player.score} />
         </div>
         <div className="decoration-image image">
           <img src={versus} alt="Character choosed" />
         </div>
         <div className="player-components">
           <Avatar image={info.computer.characterImage} />
-          <Score />
+          <Score value={info.computer.score} />
         </div>
       </div>
     </div>

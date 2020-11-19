@@ -1,10 +1,11 @@
 #character-button {
-  width: 15vw;
-  height: 15vw;
+  border: 2px solid #1411223d;
+  border-radius: 35px;
+  width: 14vw;
+  height: 14vw;
 }
 
 #character-button img {
-  border: 2px solid #1411223d;
   border-radius: 35px;
   width: inherit;
   height: inherit;
@@ -15,12 +16,13 @@
 }
 
 #character-icon {
-  width: 24vw;
-  height: 24vw;
+  border: 2px solid #1411223d;
+  border-radius: 45px;
+  width: 20vw;
+  height: 20vw;
 }
 
 #character-icon img {
-  border: 2px solid #1411223d;
   border-radius: 45px;
   width: inherit;
   height: inherit;

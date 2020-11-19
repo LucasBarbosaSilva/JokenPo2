@@ -4,7 +4,7 @@ import '../styles/score.css';
 const Score = ({ value }) => {
   return(
     <div className="container-value">
-      <h3>00</h3>
+      <h3>{value}</h3>
     </div>
   );
 }
