@@ -1,49 +1,64 @@
 import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import { Text, Image, StyleSheet, View } from 'react-native';
 
 
 import match from '../images/nomes.png';
 import versus from '../images/vs.png';
 
 import Avatar from './Avatar';
-// import Score from './Score';
+import Score from './Score';
 
-const Display = ({ props }) => {
-  console.log(props)
+const Display = ({ info }) => {
+  
   return (
     <View style={style.matchContainer}>
+      
       <View style={style.imageDecorative}>
         <Image style={style.imageDecorative} source={match} />
       </View>
+      
       <View style={style.gameComponents}>
+        
         <View style={style.playerComponents}>
-          <Avatar image={props.player.characterImage} />
-          {/* <Score /> */}
+          <Avatar image={info.player.characterImage} sizeIn={60}/>
+          <Score />
         </View>
-        <View style={style.image, style.imageDecorative}>
-          <Image source={versus}/>
+        
+        <View >
+          <Image source={versus} style={style.image, style.imageVersus,{width: 70, height: 50}}/>
         </View>
+        
         <View style={style.playerComponents}>
-          <Avatar image={props.computer.characterImage} />
-          {/* <Score /> */}
+          <Avatar image={info.computer.characterImage} sizeIn={70}/>
+          <Score />
         </View>
-      </View>
+      </View>    
     </View>
+    
   );
 }
 
 const style = StyleSheet.create({
   matchContainer: {
     backgroundColor: '#fff',
-    alignContent: 'center',
-    padding: '4 2',
+
+    alignItems: 'center',
+
+    paddingHorizontal: 4,
+    paddingVertical: 2,
     borderWidth: 2,
     borderColor: '#1411223d'
   },
   
+  
   imageDecorative: {
-    width: '100%' //,
-    //   height: auto,
+    width: '100%',
+    resizeMode: 'contain'
+  },
+  imageVersus: {
+    resizeMode: 'contain',
+    alignSelf: 'center',
+    backgroundColor: 'gray'
   },
   
   image: {
@@ -54,15 +69,19 @@ const style = StyleSheet.create({
   },
   
   gameComponents: {
-    marginTop: '2vw',
+    marginTop: 2,
+    marginHorizontal: 12,
+    width: '60%',
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignContent: 'center',
   },
   
   playerComponents: {
     flexDirection: 'column',
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    height: 100
   }
 });
 

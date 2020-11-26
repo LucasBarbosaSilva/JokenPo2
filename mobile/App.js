@@ -122,7 +122,7 @@ class App extends Component {
           <Navbar changeImage={this.changeImageButton} actualImage={this.state.isDefaultImage}/>
           <ImageButton actualImage={this.state.isDefaultImage}  />
           <AvatarLine images={images} action={this.changeImageCharacter}/>
-          {/* <Display info={this.state.gameInfo} /> */}
+          <Display info={this.state.gameInfo} />
         </View>
       );
     }
