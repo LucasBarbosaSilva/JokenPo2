@@ -72,7 +72,7 @@ const style = StyleSheet.create({
   
   gameComponents: {
     marginTop: 2,
-    flex: 0.6,
+    flex: 0.7,
     // marginHorizontal: 12,
     width: '80%',
     flexDirection: 'row',

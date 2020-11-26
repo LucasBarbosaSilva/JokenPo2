@@ -1,36 +1,36 @@
 import React from "react";
-import {Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, TouchableOpacity, View, Dimensions } from "react-native";
 
-// import pedra from "../images/pedra.png";
-// import lagarto from "../images/lagarto.png";
-// import papel from "../images/papel.png";
-// import spock from "../images/spock.png";
-// import tesoura from "../images/tesoura.png";
+let width = Dimensions.get('window').width;
 
-// const img = [pedra, lagarto, papel, spock, tesoura]
-
-const Avatar = (props) => {
-    return(
-        <View style={style.container}>
-            <TouchableOpacity onPress={() => props.action(props.index, props.image)}>
-                <ImageBackground source={props.image} style={style.image, {height: props.sizeIn, width: props.sizeIn}}/>
-            </TouchableOpacity>
-        </View>
-    );
+const Avatar = ({ image, index, action }) => {
+  return(
+    <View style={styles.container}>
+      <TouchableOpacity style={ styles.button } onPress={() => action(index, image )}>
+        <Image style={styles.image} source={image} />
+      </TouchableOpacity>
+    </View>
+  );
 }
 
-const style = StyleSheet.create({
-    container:{
-        borderRadius: 50,
-        backgroundColor: '#000',
-        display: "flex",
-        justifyContent: 'center',
-        alignItems: 'center',
-        overflow: "hidden",
-    },
-    image:{
-        
-    }
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    height: width * 0.15,
+    width: width * 0.15,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    borderRadius: 80,
+    borderWidth: 2,
+  },
+  image: {
+    borderRadius: 65,
+    width:  width * 0.15,
+    height: width * 0.15,
+    resizeMode: 'cover'
+  }
 });
 
 export default Avatar;

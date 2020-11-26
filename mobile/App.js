@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
-import Navbar from './src/components/Navbar';
+import Appbar from './src/components/Appbar';
 import ImageButton from './src/components/ImageButton.js';
 import AvatarLine from './src/components/AvatarLine';
 import Display from './src/components/Display';
@@ -15,7 +15,6 @@ import paper from './src/images/papel.png';
 const images = [rock, spock, scissor, lizard, paper];
 const winnerList = [[2, 3], [0,2], [3,4], [1,4], [0,1]];
 
-
 let defaultGame = {
   player: {
     characterImage: rock,
@@ -27,17 +26,20 @@ let defaultGame = {
     characterValue: 0,
     score: '00'
   }
-}
+};
 
 let names = ['Lucas', 'Marcos']
-
 class App extends Component {
-  constructor (props){
-    super(props)
-    this.state = {
-      isDefaultImage: true,
-      gameInfo: defaultGame,
-    }
+
+  state = {
+    isDefaultImage: true,
+    gameInfo: defaultGame,
+  }
+
+  resetScore() {
+    this.setState({
+      gameInfo: defaultGame
+    });
   }
 
   changeImageButton = (value) => {
@@ -45,7 +47,6 @@ class App extends Component {
   }
 
   changeImageCharacter = async (playerKey, value) => {
-    
     this.setState(prevState => ({
       gameInfo: {
         ...prevState.gameInfo,
@@ -59,7 +60,6 @@ class App extends Component {
 
     let computerKey = await this.chooseComputerCharacter();
     this.calculateWinner(playerKey, computerKey);
-
   }
 
   async chooseComputerCharacter() {
@@ -84,10 +84,11 @@ class App extends Component {
   sleep(ms) { 
     return new Promise(resolve => setTimeout(resolve, ms)); 
   }
-  
+
   calculateWinner(playerIndex, computerIndex) {
     let computerScore = parseInt(this.state.gameInfo.computer.score);
     let playerScore = parseInt(this.state.gameInfo.player.score);
+    
     if(winnerList[playerIndex].includes(computerIndex)) {
       playerScore += 1;
       playerScore = playerScore < 10 ? `0${playerScore}` : playerScore;
@@ -102,44 +103,39 @@ class App extends Component {
       }));
     }
     else if(playerIndex !== computerIndex) {
-          computerScore += 1;
-          computerScore = computerScore < 10 ? `0${computerScore}` : computerScore;
-          this.setState(prevState => ({
-            gameInfo: {
-              ...prevState.gameInfo,
-              computer: {
-                ...prevState.gameInfo.computer,
-                score: computerScore
-              }
-            } 
-          }));
-        }
-      }
-  
-    render() {
-      return (
+      computerScore += 1;
+      computerScore = computerScore < 10 ? `0${computerScore}` : computerScore;
+      this.setState(prevState => ({
+        gameInfo: {
+          ...prevState.gameInfo,
+          computer: {
+            ...prevState.gameInfo.computer,
+            score: computerScore
+          }
+        } 
+      }));
+    }
+  }
+
+  render() {
+    return (
+      <View>
+        <Appbar action={this.resetScore}/>
         <View style={styles.container}>
-          <StatusBar/>
-          <Navbar changeImage={this.changeImageButton} actualImage={this.state.isDefaultImage}/>
-          <ImageButton actualImage={this.state.isDefaultImage}  />
+          <ImageButton isDefaultImage={this.state.isDefaultImage} action={this.changeImageButton}/>
           <AvatarLine images={images} action={this.changeImageCharacter}/>
           <Display info={this.state.gameInfo} />
           <Title names={names}/>
         </View>
-      );
-    }
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
-    // backgroundColor: '#4a3e86',
-    // flex: 1,
-    // backgroundColor: '#4a3e86',
-    // padding: '4vw',
-    // flexDirection: 'column',
-    
-    justifyContent: 'flex-start'
-    
+    backgroundColor: "#4a3e86",
+    paddingHorizontal: 15,
   },
 });
 

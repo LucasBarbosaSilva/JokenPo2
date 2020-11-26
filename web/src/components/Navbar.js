@@ -6,7 +6,7 @@ function NavBar({ action }) {
     <div className="navbar">
       <h3>GAME</h3>
       <button type="button" onClick={() => action()}>
-        <img src={buttonIcon} alt="Turn on/off symbol" width="16" height="16" />
+        <img src={buttonIcon} alt="Turn on/off symbol" />
       </button>
     </div>
   );
