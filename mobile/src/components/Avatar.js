@@ -11,8 +11,8 @@ import {Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 
 
 const Avatar = (props) => {
     return(
-        <View style={{height: props.sizeIn, width: props.sizeIn}}>
-            <TouchableOpacity  style={style.container} >
+        <View style={style.container}>
+            <TouchableOpacity onPress={() => props.action(props.index, props.image)}>
                 <ImageBackground source={props.image} style={style.image, {height: props.sizeIn, width: props.sizeIn}}/>
             </TouchableOpacity>
         </View>
@@ -22,8 +22,6 @@ const Avatar = (props) => {
 const style = StyleSheet.create({
     container:{
         borderRadius: 50,
-        height: 50,
-        width: 50,
         backgroundColor: '#000',
         display: "flex",
         justifyContent: 'center',

@@ -4,6 +4,7 @@ import Navbar from './src/components/Navbar';
 import ImageButton from './src/components/ImageButton.js';
 import AvatarLine from './src/components/AvatarLine';
 import Display from './src/components/Display';
+import Title from './src/components/Title';
 
 import rock from './src/images/pedra.png';
 import spock from './src/images/spock.png';
@@ -28,7 +29,7 @@ let defaultGame = {
   }
 }
 
-
+let names = ['Lucas', 'Marcos']
 
 class App extends Component {
   constructor (props){
@@ -123,6 +124,7 @@ class App extends Component {
           <ImageButton actualImage={this.state.isDefaultImage}  />
           <AvatarLine images={images} action={this.changeImageCharacter}/>
           <Display info={this.state.gameInfo} />
+          <Title names={names}/>
         </View>
       );
     }

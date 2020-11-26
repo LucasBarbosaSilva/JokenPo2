@@ -20,8 +20,8 @@ const Display = ({ info }) => {
       <View style={style.gameComponents}>
         
         <View style={style.playerComponents}>
-          <Avatar image={info.player.characterImage} sizeIn={60}/>
-          <Score />
+          <Avatar image={info.player.characterImage} sizeIn={70}/>
+          <Score value={info.player.score}/>
         </View>
         
         <View >
@@ -30,7 +30,7 @@ const Display = ({ info }) => {
         
         <View style={style.playerComponents}>
           <Avatar image={info.computer.characterImage} sizeIn={70}/>
-          <Score />
+          <Score value={info.player.score}/>
         </View>
       </View>    
     </View>
@@ -41,11 +41,12 @@ const Display = ({ info }) => {
 const style = StyleSheet.create({
   matchContainer: {
     backgroundColor: '#fff',
-
+    // height: '100%',
+    
     alignItems: 'center',
-
+    
     paddingHorizontal: 4,
-    paddingVertical: 2,
+    height: 300,
     borderWidth: 2,
     borderColor: '#1411223d'
   },
@@ -53,6 +54,7 @@ const style = StyleSheet.create({
   
   imageDecorative: {
     width: '100%',
+    flex: 0.5,
     resizeMode: 'contain'
   },
   imageVersus: {
@@ -70,8 +72,9 @@ const style = StyleSheet.create({
   
   gameComponents: {
     marginTop: 2,
-    marginHorizontal: 12,
-    width: '60%',
+    flex: 0.6,
+    // marginHorizontal: 12,
+    width: '80%',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignContent: 'center',
