@@ -3,14 +3,14 @@ import { StyleSheet, View } from "react-native";
 import Avatar from "./Avatar";
 
 
-const AvatarLine = (images) =>{
+const AvatarLine = (props) =>{
   
   return(
     <View style={style.container}>
       { 
-        images.map((image, key)=> {
+        props.images.map((image, key)=> {
           return(
-            <Avatar key={key} index={key} image={image} sizeIn={50} />
+            <Avatar key={key} index={key} action={props.action} image={image} sizeIn={50} />
           );
         })
       }

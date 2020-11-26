@@ -9,26 +9,36 @@ import {Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 
 
 // const img = [pedra, lagarto, papel, spock, tesoura]
 
-export default class Avatar extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            image: props.image,
-            sizeIn: props.sizeIn,
-            id: props.id
-        }
-    }
-    
-    render(){
-        return(
-            <View  >
-                <TouchableOpacity style={style.container} >
-                    <ImageBackground source={this.state.image} style={style.image, {height: this.state.sizeIn, width: this.state.sizeIn}}/>
-                </TouchableOpacity>
-            </View>
-        );
-    }
+const Avatar = (props) => {
+    return(
+        <View  >
+            <TouchableOpacity  style={style.container} >
+                <ImageBackground source={props.image} style={style.image, {height: props.sizeIn, width: props.sizeIn}}/>
+            </TouchableOpacity>
+        </View>
+    );
 }
+
+// export default class Avatar extends React.Component{
+//     constructor(props){
+//         super(props)
+//         this.state = {
+//             image: props.image,
+//             sizeIn: props.sizeIn,
+//             id: props.id
+//         }
+//     }
+    
+//     render(){
+//         return(
+//             <View  >
+//                 <TouchableOpacity style={style.container} >
+//                     <ImageBackground source={this.state.image} style={style.image, {height: this.state.sizeIn, width: this.state.sizeIn}}/>
+//                 </TouchableOpacity>
+//             </View>
+//         );
+//     }
+// }
 
 const style = StyleSheet.create({
     container:{
@@ -45,3 +55,5 @@ const style = StyleSheet.create({
         
     }
 });
+
+export default Avatar;

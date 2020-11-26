@@ -14,6 +14,7 @@ import paper from './src/images/papel.png';
 const images = [rock, spock, scissor, lizard, paper];
 const winnerList = [[2, 3], [0,2], [3,4], [1,4], [0,1]];
 
+
 let defaultGame = {
   player: {
     characterImage: rock,
@@ -27,11 +28,15 @@ let defaultGame = {
   }
 }
 
-class App extends Component {
 
-  state = {
-    isDefaultImage: true,
-    gameInfo: defaultGame,
+
+class App extends Component {
+  constructor (props){
+    super(props)
+    this.state = {
+      isDefaultImage: true,
+      gameInfo: defaultGame,
+    }
   }
 
   changeImageButton = (value) => {
@@ -78,7 +83,7 @@ class App extends Component {
   sleep(ms) { 
     return new Promise(resolve => setTimeout(resolve, ms)); 
   }
-
+  
   calculateWinner(playerIndex, computerIndex) {
     let computerScore = parseInt(this.state.gameInfo.computer.score);
     let playerScore = parseInt(this.state.gameInfo.player.score);
@@ -109,15 +114,15 @@ class App extends Component {
           }));
         }
       }
-
+  
     render() {
       return (
         <View style={styles.container}>
           <StatusBar/>
-          <Navbar />
-          <ImageButton actualImage={this.state.isDefaultImage} changeImage={this.changeImageButton} />
+          <Navbar changeImage={this.changeImageButton} actualImage={this.state.isDefaultImage}/>
+          <ImageButton actualImage={this.state.isDefaultImage}  />
           <AvatarLine images={images} action={this.changeImageCharacter}/>
-          <Display info={this.state.gameInfo} />
+          {/* <Display info={this.state.gameInfo} /> */}
         </View>
       );
     }
@@ -130,7 +135,8 @@ const styles = StyleSheet.create({
     // backgroundColor: '#4a3e86',
     // padding: '4vw',
     // flexDirection: 'column',
-    // alignItems: 'center',
+    
+    justifyContent: 'flex-start'
     
   },
 });

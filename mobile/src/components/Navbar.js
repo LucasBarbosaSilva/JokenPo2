@@ -4,10 +4,12 @@ import buttonIcon from '../images/botao.png';
 
 var width = Dimensions.get('window').width;
 
-export default function NavBar() {
+export default function NavBar({changeImage, actualImage}) {
   return (
     <View style={styles.navbar}>
-      <Text style={styles.text}>GAME</Text>
+      <TouchableOpacity onPress={()=>{changeImage(!(actualImage))}}>
+        <Text style={styles.text}>GAME</Text>
+      </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={()=>{alert("you clicked me")}}>
         <Image style={styles.image} source={buttonIcon}/>
       </TouchableOpacity>

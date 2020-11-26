@@ -8,7 +8,8 @@ import versus from '../images/vs.png';
 import Avatar from './Avatar';
 // import Score from './Score';
 
-const Display = ({ info }) => {
+const Display = ({ props }) => {
+  console.log(props)
   return (
     <View style={style.matchContainer}>
       <View style={style.imageDecorative}>
@@ -16,14 +17,14 @@ const Display = ({ info }) => {
       </View>
       <View style={style.gameComponents}>
         <View style={style.playerComponents}>
-          <Avatar image={info.player.characterImage} />
+          <Avatar image={props.player.characterImage} />
           {/* <Score /> */}
         </View>
         <View style={style.image, style.imageDecorative}>
           <Image source={versus}/>
         </View>
         <View style={style.playerComponents}>
-          <Avatar image={info.computer.characterImage} />
+          <Avatar image={props.computer.characterImage} />
           {/* <Score /> */}
         </View>
       </View>
