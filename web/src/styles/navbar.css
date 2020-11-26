@@ -4,14 +4,14 @@
   justify-content: space-between;
   align-items: center;
   background-color: #1c144d;
-  padding: 0.6rem 5vw 0.6rem 5vw;
+  padding: 1.5vh 4vw 1.5vh 4vw;
 }
 
 .navbar h3 {
   color: #f1f3f3;
   display: block;
   font-weight: 800;
-  font-size: 24px;
+  font-size:6vw;
 }
 
 .navbar button {
@@ -28,4 +28,9 @@
 .navbar button:active {
   background-color: #df9d25;
   border: 2px solid #df9d259c;
+}
+
+.navbar button img {
+  width: 4.5vw;
+  height: 4.5vw;
 }
