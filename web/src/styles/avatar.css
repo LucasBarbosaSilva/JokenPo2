@@ -17,13 +17,13 @@
 
 #character-icon {
   border: 2px solid #1411223d;
-  border-radius: 45px;
+  border-radius: 15vw;
   width: 20vw;
   height: 20vw;
 }
 
 #character-icon img {
-  border-radius: 45px;
+  border-radius: 15vw;
   width: inherit;
   height: inherit;
 }

@@ -14,6 +14,7 @@ import paper from './images/papel.png';
 
 const images = [rock, spock, scissor, lizard, paper];
 const winnerList = [[2, 3], [0,2], [3,4], [1,4], [0,1]];
+
 let defaultGame = {
   player: {
     characterImage: rock,
@@ -128,4 +129,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;

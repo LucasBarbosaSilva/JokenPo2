@@ -1,22 +1,31 @@
 import React from 'react';
 import { View, Text, StyleSheet} from 'react-native';
 
-const Title = ({names}) => {
+const Title = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{names[0]} and {names[1]}</Text>
+      <Text style={styles.title}>Lucas Barbosa e Marcos Antônio</Text>
+      <Text style={styles.subtitle}>514-A</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container:{
+    alignItems: 'center',
     height: 80,
-    alignItems: 'center'
+    marginTop: 10
   },
-  text: {
-    fontSize: 20,
-    color: 'white'
+  title: {
+    color: 'white',
+    fontSize: '18%',
+    fontWeight: "bold"
+  },
+  subtitle: {
+    color: '#f7312b',
+    fontSize: '18%',
+    fontWeight: "bold",
+    marginTop: 5
   }
 });
 

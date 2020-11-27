@@ -1,16 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar } from 'react-native';
-import buttonIcon from '../images/botao.png';
 
-const AppBar = ({ action }) => {
+import buttonIcon from '../images/botao.png';
+import charactersImage from '../images/jogadores.png';
+import rulesImage from '../images/regras.png';
+
+const AppBar = ({ resetScore, changeImage, isDefaultImage }) => {
+  let value = isDefaultImage ? charactersImage : rulesImage;
   return (
     <View>
       <View style={[styles.statusBar, "#1c134b" ]}>
         <StatusBar translucent backgroundColor={"#110b30"} barStyle={"light-content"} />
       </View>
       <View style={styles.appBar}>
-        <Text style={styles.text}>GAME</Text>
-        <TouchableOpacity style={styles.button} onPress={() => action()}>
+        <TouchableOpacity onPress={() => changeImage(!isDefaultImage)}>
+          <Text style={styles.text}>GAME</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => resetScore()}>
           <Image style={styles.image} source={buttonIcon}/>
         </TouchableOpacity>
       </View>

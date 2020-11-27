@@ -1,32 +1,31 @@
 import React from 'react';
-import { Text, StyleSheet, View, Image, TouchableOpacity, Dimensions, ImageBackground } from 'react-native';
-
+import { StyleSheet, View, Image, Dimensions } from 'react-native';
 import charactersImage from '../images/jogadores.png';
 import rulesImage from '../images/regras.png';
 
 let width = Dimensions.get('window').width;
-let height = Dimensions.get('window').height;
 
-const ImageButton = ({ actualImage}) => {
-  let value = actualImage ? charactersImage : rulesImage;
+const ImageButton = ({ isDefaultImage, action }) => {
+  let value = isDefaultImage ? charactersImage : rulesImage;
   return (
-    <View style={styles.contaier}>
-      <Image style={styles.imageImage} source={value}/>
-    </View>
-    
+    <View style={styles.container}>
+      <Image style={styles.image} source={value} />
+    </View> 
   );
 }
 
 const styles = StyleSheet.create({
-  contaier:{
-    height: 212,
-    margin: 12,
-    
+  container: {
+    alignItems: 'center',
+    backgroundColor: '#1c134b',
+    borderWidth: 2,
+    borderRadius: 5,
+    height: width * 0.634,
+    marginTop: 15,
   },
-  imageImage:{
+  image: {
+    height: "100%",
     resizeMode: 'contain',
-    width: '100%',
-    height: '100%'
   }
 });
 

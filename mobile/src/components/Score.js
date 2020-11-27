@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, View , StyleSheet} from 'react-native';
 
-
 const Score = ({ value }) => {
   return(
     <View style={styles.container}>
@@ -11,30 +10,21 @@ const Score = ({ value }) => {
 }
 
 const styles = StyleSheet.create({
-  container:{
-    marginTop: 40,
+  container: {
+    alignItems: 'center',
     backgroundColor: '#4a3e86',
-    borderWidth: 1,
-    // borderBottomColor: '#1411223d',
-    borderStyle: 'solid', 
+    borderWidth: 2,
     borderRadius: 45,
-    display: 'flex',
-    flexDirection: 'column',
     justifyContent: 'center',
-    height: 30,
-    width: 70,
+    paddingHorizontal: 20,
+    paddingVertical: 2, 
+    marginTop: 8
   },
-
   text: {
-    color: '#fff',
+    color: '#ffffffe5',
     fontSize: 25,
-    // fontFamily: 'Ubuntu', sansserif
-    textAlign: 'center',
-    
-    // marginblockstart: 0.0em,
-    // marginblockend: 0.0em,
+    fontWeight: "bold"
   }
 });
-
 
 export default Score;

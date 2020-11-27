@@ -1,36 +1,29 @@
 import React from 'react';
-import { Text, Image, StyleSheet, View } from 'react-native';
-
-
-import match from '../images/nomes.png';
-import versus from '../images/vs.png';
+import { Image, StyleSheet, View } from 'react-native';
 
 import Avatar from './Avatar';
 import Score from './Score';
 
+import match from '../images/nomes.png';
+import versus from '../images/vs.png';
+
 const Display = ({ info }) => {
-  
   return (
     <View style={style.matchContainer}>
-      
       <View style={style.imageDecorative}>
         <Image style={style.imageDecorative} source={match} />
       </View>
-      
-      <View style={style.gameComponents}>
-        
+      <View style={style.gameComponents}> 
         <View style={style.playerComponents}>
-          <Avatar image={info.player.characterImage} sizeIn={70}/>
-          <Score value={info.player.score}/>
+          <Avatar image={info.player.characterImage}/>
+          <Score value={info.player.score} />
         </View>
-        
         <View >
-          <Image source={versus} style={style.image, style.imageVersus,{width: 70, height: 50}}/>
-        </View>
-        
+          <Image source={versus} style={style.imageVersus}/>
+        </View>  
         <View style={style.playerComponents}>
-          <Avatar image={info.computer.characterImage} sizeIn={70}/>
-          <Score value={info.player.score}/>
+          <Avatar image={info.computer.characterImage}/>
+          <Score value={info.computer.score} />
         </View>
       </View>    
     </View>
@@ -41,52 +34,36 @@ const Display = ({ info }) => {
 const style = StyleSheet.create({
   matchContainer: {
     backgroundColor: '#fff',
-    // height: '100%',
-    
     alignItems: 'center',
-    
-    paddingHorizontal: 4,
-    height: 300,
+    paddingHorizontal: 15,
+    paddingTop: 10,
+    paddingBottom: 15,
     borderWidth: 2,
-    borderColor: '#1411223d'
+    borderColor: '#000'
   },
-  
-  
   imageDecorative: {
     width: '100%',
-    flex: 0.5,
-    resizeMode: 'contain'
+    height: 60,
+    resizeMode: 'contain',
+    alignItems: 'center',
   },
   imageVersus: {
     resizeMode: 'contain',
     alignSelf: 'center',
-    backgroundColor: 'gray'
+    height: 90,
+    width: 110,
+    marginBottom: 40
   },
-  
-  image: {
-    paddingTop: 30,
-    width: 30,
-    alignSelf: 'flex-start',
-    justifyContent: 'center',
-  },
-  
   gameComponents: {
-    marginTop: 2,
-    flex: 0.7,
-    // marginHorizontal: 12,
-    width: '80%',
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignContent: 'center',
-  },
-  
-  playerComponents: {
-    flexDirection: 'column',
-    alignItems: 'center',
     justifyContent: 'space-around',
-    height: 100
+    alignItems: 'center',
+    width: '100%'
+  }, 
+  playerComponents: {
+    alignItems: 'center',
+    justifyContent: 'space-between',
   }
 });
 
 export default Display;
-

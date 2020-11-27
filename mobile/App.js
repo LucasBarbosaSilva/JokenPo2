@@ -28,7 +28,6 @@ let defaultGame = {
   }
 };
 
-let names = ['Lucas', 'Marcos']
 class App extends Component {
 
   state = {
@@ -36,7 +35,7 @@ class App extends Component {
     gameInfo: defaultGame,
   }
 
-  resetScore() {
+  resetScore = () => {
     this.setState({
       gameInfo: defaultGame
     });
@@ -120,12 +119,12 @@ class App extends Component {
   render() {
     return (
       <View>
-        <Appbar action={this.resetScore}/>
+        <Appbar resetScore={this.resetScore} changeImage={this.changeImageButton} isDefaultImage={this.state.isDefaultImage} />
         <View style={styles.container}>
           <ImageButton isDefaultImage={this.state.isDefaultImage} action={this.changeImageButton}/>
           <AvatarLine images={images} action={this.changeImageCharacter}/>
-          <Display info={this.state.gameInfo} />
-          <Title names={names}/>
+          <Display info={this.state.gameInfo}/>
+          <Title/>
         </View>
       </View>
     );

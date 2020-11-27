@@ -1,21 +1,30 @@
 import React from "react";
-import { Image, StyleSheet, TouchableOpacity, View, Dimensions } from "react-native";
+import { Image, Pressable, StyleSheet, Text, TouchableOpacity, View, Dimensions } from "react-native";
 
 let width = Dimensions.get('window').width;
 
 const Avatar = ({ image, index, action }) => {
-  return(
-    <View style={styles.container}>
-      <TouchableOpacity style={ styles.button } onPress={() => action(index, image )}>
-        <Image style={styles.image} source={image} />
-      </TouchableOpacity>
-    </View>
-  );
+  if(action) {
+    return(
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={ styles.button } onPress={() => action(image, index)}>
+          <Image style={styles.imageButton} source={image} />
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  else {
+    return(
+      <View style={styles.iconContainer}>
+        <Image style={styles.imageIcon} source={image} />
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    display: "flex",
+  buttonContainer: {
     height: width * 0.15,
     width: width * 0.15,
     justifyContent: 'center',
@@ -25,11 +34,25 @@ const styles = StyleSheet.create({
     borderRadius: 80,
     borderWidth: 2,
   },
-  image: {
+  imageButton: {
     borderRadius: 65,
     width:  width * 0.15,
     height: width * 0.15,
-    resizeMode: 'cover'
+    resizeMode: 'cover',
+  },
+  iconContainer: {
+    height: width * 0.22,
+    width: width * 0.22,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 80,
+    borderWidth: 2,
+  },
+  imageIcon: {
+    borderRadius: 75,
+    width:  width * 0.21,
+    height: width * 0.21,
+    resizeMode: 'cover',
   }
 });
 
