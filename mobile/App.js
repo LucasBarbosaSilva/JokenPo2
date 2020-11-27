@@ -133,7 +133,7 @@ class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#4a3e86",
+    backgroundColor: "green",
     paddingHorizontal: 15,
   },
 });

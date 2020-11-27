@@ -7,7 +7,7 @@ const Avatar = ({ image, index, action }) => {
   if(action) {
     return(
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={ styles.button } onPress={() => action(image, index)}>
+        <TouchableOpacity style={ styles.button } onPress={() => action(index, image )}>
           <Image style={styles.imageButton} source={image} />
         </TouchableOpacity>
       </View>

@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   appBar: {
     alignItems: "center",
-    backgroundColor:'#1c134b',
+    backgroundColor:'darkgreen',
     flexDirection: "row",
     height: 45,
     justifyContent:"space-between",
